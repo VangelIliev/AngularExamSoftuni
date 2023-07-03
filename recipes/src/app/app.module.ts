@@ -10,6 +10,7 @@ import { CategoryComponent } from './category/category.component';
 import { LoginComponent } from './login/login.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     CategoryComponent,
     LoginComponent,
     MyRecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
