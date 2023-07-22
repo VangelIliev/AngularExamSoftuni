@@ -1,14 +1,14 @@
 <div class=container>
     <div class=screen>
         <div class=content>                        
-            <form #login="ngForm" class=login>
+            <form #loginForm="ngForm" class=login (ngSubmit)="onSubmit(loginForm)">
                 <div class=field>
                     <i class="login__icon fas fa-user"></i>
-                    <input required minlength="6" maxlength="12  " type="email" class=input value=email placeholder="Email" ngModel/>
+                    <input required minlength="6" maxlength="12" name="email" type="email" class=input placeholder="Email" [(ngModel)]="user.email" required/>
                 </div>
                 <div class=field>
                     <i class="icon fas fa-lock"></i>
-                    <input type="password" class=input placeholder="Password" value=password ngModel/>                   
+                    <input type="password" class=input name="password" placeholder="Password" [(ngModel)]="user.password" required/>                   
                 </div>
                 <button class=submit type='submit'>
                     <span class=text>Log In</span>
