@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class=container>
+    <div class=screen>
+        <div class=content>                        
+            <form #login="ngForm" class=login>
+                <div class=field>
+                    <i class="login__icon fas fa-user"></i>
+                    <input required minlength="6" maxlength="12  " type="email" class=input value=email placeholder="Email" ngModel/>
+                </div>
+                <div class=field>
+                    <i class="icon fas fa-lock"></i>
+                    <input type="password" class=input placeholder="Password" value=password ngModel/>                   
+                </div>
+                <button class=submit type='submit'>
+                    <span class=text>Log In</span>
+                    <i class="icon fas fa-chevron-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
