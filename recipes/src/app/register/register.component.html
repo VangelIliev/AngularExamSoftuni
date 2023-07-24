@@ -1,18 +1,18 @@
 <div class=container>
     <div class=screen>
         <div class=content>                        
-            <form #registerForm="ngForm" class=login (ngSubmit)="onSubmit(registerForm)">
+            <form class=login>
                 <div class=field>
                     <i class="login__icon fas fa-user"></i>
-                    <input required minlength="6" maxlength="12" name="email" type="email" class=input  placeholder="Email" [(ngModel)]="user.email" required/>
+                    <input type="email" class=input  placeholder="Email" #userEmail required/>
                 </div>
                 <div class=field>
                     <i class="icon fas fa-lock"></i>
-                    <input type="password" class=input placeholder="Password" name="pasword"  [(ngModel)]="user.password" required/>                   
+                    <input type="password" class=input placeholder="Password" #userPwd required/>                   
                 </div>
-                <button class=submit type='submit'>
+                <button class=submit>
                     <span class=text>Register</span>
-                    <i class="icon fas fa-chevron-right"></i>
+                    <i class="icon fas fa-chevron-right" (click)="authService.SignUp(userEmail.value, userPwd.value)"></i>
                 </button>
             </form>
         </div>

@@ -1,27 +1,13 @@
-import { Component} from '@angular/core';
-import { NgForm } from '@angular/forms';
-
-interface User{
-  email: string,
-  password: string
-}
+import { Component, OnInit} from '@angular/core';
+import { AuthService } from "../services/auth.service";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
-  user: User = {
-    email: '',
-    password: ''
-  };
-  onSubmit(registerForm: NgForm){
-    if(registerForm.valid){
-      console.log(this.user);
-    }
-    else{
-      alert("Your form isn't valid");
-    }
-  }
-
+export class RegisterComponent implements OnInit {
+  constructor(
+    public authService: AuthService
+  ) { }
+  ngOnInit(){} 
 }
