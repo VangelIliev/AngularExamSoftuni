@@ -6,8 +6,25 @@ import { AuthService } from "../services/auth.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(
-    public authService: AuthService
-  ) { }
-  ngOnInit(){} 
+  isSignedIn = false;
+  email:string = '';
+  password:string= '';
+  constructor(public authService: AuthService) { }
+  ngOnInit(){
+    if(localStorage.getItem('user') != null){
+      this.isSignedIn = true;
+    }
+    else{
+      this.isSignedIn = false;
+    }
+  } 
+
+  async onSignup(){
+    await this.authService.signUp(this.email, this.password);
+    if(this.authService.isLoggedIn){
+      this.isSignedIn = true;
+      this.email = '';
+      this.password = '';
+    }
+  }
 }

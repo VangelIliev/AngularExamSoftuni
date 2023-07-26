@@ -1,14 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from "../services/auth.service";
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(public authService: AuthService){
+  isSignedIn = false;
+  constructor(public authService: AuthService) { }
+  ngOnInit(){
+    if(localStorage.getItem('user') != null){
+      this.isSignedIn = true;
+    }
+    else{
+      this.isSignedIn = false;
+    }
+  } 
 
+  async signIn(email:string, password:string){
+    await this.authService.signIn(email, password);
+    if(this.authService.isLoggedIn){
+      this.isSignedIn = true;
+    }
   }
-  ngOnInit() {} 
 }
