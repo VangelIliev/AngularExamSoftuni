@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from "../services/auth.service";
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { AuthService } from "../services/auth.service";
 })
 export class LoginComponent implements OnInit {
   isSignedIn = false;
-  constructor(public authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(){
     if(localStorage.getItem('user') != null){
       this.isSignedIn = true;
@@ -16,11 +17,11 @@ export class LoginComponent implements OnInit {
       this.isSignedIn = false;
     }
   } 
-
   async signIn(email:string, password:string){
     await this.authService.signIn(email, password);
     if(this.authService.isLoggedIn){
       this.isSignedIn = true;
+      this.router.navigate(['/recipes']);
     }
   }
 }

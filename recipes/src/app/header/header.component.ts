@@ -1,18 +1,21 @@
-import { Component,OnInit, Output, EventEmitter } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { AuthService } from '../services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
- @Output() isLogout = new EventEmitter<void>()
- constructor(public authService : AuthService){
-
+export class HeaderComponent implements OnInit {
+  isSignedIn: boolean = false;
+  constructor(private authService : AuthService, private router: Router){}
+ ngOnInit(): void{
+  this.authService.authState.subscribe(isLoggedIn => {
+    this.isSignedIn = isLoggedIn;
+  });
  }
- ngOnInit(): void{}
  logout(){
   this.authService.logout();
+  this.router.navigate(['/login']);
  }
 }

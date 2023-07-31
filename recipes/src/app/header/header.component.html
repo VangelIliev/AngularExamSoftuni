@@ -3,9 +3,9 @@
 
 <div class="topnav" id="myTopnav">
   <a routerLink="/recipes">All Recipes</a>
-  <a routerLink="/myRecipes">My Recipes</a>
-  <a routerLink="/addRecipe">Add Recipe</a>
-  <a routerLink="/register">Register</a>
-  <a routerLink="/login">Login</a>
-  <a class="logout" (click)="logout()">Logout</a>
+  <a routerLink="/myRecipes" *ngIf="isSignedIn">My Recipes</a>
+  <a routerLink="/addRecipe" *ngIf="isSignedIn">Add Recipe</a>
+  <a routerLink="/register" *ngIf="!isSignedIn">Register</a>
+  <a routerLink="/login" *ngIf="!isSignedIn">Login</a>
+  <a class="logout" (click)="logout()" *ngIf="isSignedIn">Logout</a>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from "../services/auth.service";
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ export class RegisterComponent implements OnInit {
   isSignedIn = false;
   email:string = '';
   password:string= '';
-  constructor(public authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(){
     if(localStorage.getItem('user') != null){
       this.isSignedIn = true;
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
       this.isSignedIn = true;
       this.email = '';
       this.password = '';
+      this.router.navigate(['/login']);
     }
   }
 }
