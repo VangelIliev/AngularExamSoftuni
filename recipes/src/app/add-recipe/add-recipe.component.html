@@ -1,1 +1,12 @@
-<p>add-recipe works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title" required>
+  
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+  
+    <!-- Add more input fields for other recipe details, e.g., ingredients, instructions, etc. -->
+  
+    <button class="btn btn-primary" type="submit">Add Recipe</button>
+  </form>
+  
