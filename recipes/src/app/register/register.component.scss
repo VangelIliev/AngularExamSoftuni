@@ -24,7 +24,7 @@
 .screen {		
 	background: linear-gradient(90deg, #ff4f87, #7C78B8);		
 	position: relative;	
-	height: 600px;
+	height: 550px;
 	width: 360px;	
 	box-shadow: 0px 0px 24px #5C5696;
 }
@@ -46,7 +46,6 @@
 	clip-path: inset(0 0 0 0);	
 }
 .login {
-	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
 }
@@ -96,7 +95,10 @@
 	cursor: pointer;
 	transition: .2s;
 }
-
+.header-text{
+	text-align: center;
+	font-size: 25px;
+}
 .submit:active,
 .submit:focus,
 .submit:hover {
