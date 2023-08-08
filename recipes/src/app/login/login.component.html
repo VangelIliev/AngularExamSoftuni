@@ -3,16 +3,16 @@
         <div class="content">                        
             <form #loginForm="ngForm" class="form">
                 <div class="field">
-                    <i class="login__icon fas fa-user"></i>
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
                     <input type="email" class="input" placeholder="Email" #email>
                 </div>
                 <div class="field">
-                    <i class="icon fas fa-lock"></i>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
                     <input type="password" class="input"  placeholder="Password" #password>                   
                 </div>
                 <button class="submit" (click)="signIn(email.value, password.value)">
                     <span class="text">Log In</span>
-                    <i class="icon fas fa-chevron-right"></i>
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
                 </button>
             </form>
         </div>
