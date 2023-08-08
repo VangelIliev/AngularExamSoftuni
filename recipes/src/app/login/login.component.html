@@ -1,19 +1,21 @@
 <div class="container">
     <div class="screen">
         <div class="content">                        
-            <form #loginForm="ngForm" class="form">
-                <div class="field">
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                    <input type="email" class="input" placeholder="Email" #email>
+            <form #loginForm="ngForm" class="login">
+                <div class="form-fields">
+                    <div class="field">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input type="email" class="input" placeholder="Email" #email>
+                    </div>
+                    <div class="field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" class="input"  placeholder="Password" #password>                   
+                    </div>
+                    <button class="submit" (click)="signIn(email.value, password.value)">
+                        <span class="button-text">Log In</span>
+                    </button>
                 </div>
-                <div class="field">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    <input type="password" class="input"  placeholder="Password" #password>                   
-                </div>
-                <button class="submit" (click)="signIn(email.value, password.value)">
-                    <span class="text">Log In</span>
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                </button>
+                
             </form>
         </div>
     </div>

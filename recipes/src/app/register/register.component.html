@@ -2,17 +2,19 @@
     <div class="screen">
         <div class="content">                        
             <form class="login" (ngSubmit)="onSignup()">
-                <div class="field">
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                    <input type="email" class="input"  placeholder="Email" name="email" [(ngModel)]="email"/>
-                </div>
-                <div class="field">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    <input type="password" class="input" placeholder="Password" name="password" [(ngModel)]="password"/>                   
-                </div>
-                <button class="submit" type="submit">
-                    <span class=text>Register</span>                    
-                </button>
+                <div class="form-fields">
+                    <div class="field">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input type="email" class="input"  placeholder="Email" name="email" [(ngModel)]="email"/>
+                    </div>
+                    <div class="field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" class="input" placeholder="Password" name="password" [(ngModel)]="password"/>                   
+                    </div>
+                    <button class="submit" type="submit">
+                        <span class="button-text">Register</span>                    
+                    </button>
+                </div>                
             </form>
         </div>
     </div>
