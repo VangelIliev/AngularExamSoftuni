@@ -7,7 +7,14 @@
 	padding: 0;	
 	font-family: Raleway, sans-serif;
 }
-
+.form {
+    /* Add necessary styling for the form */
+    display: grid;
+    place-items: center; /* Center the content both horizontally and vertically */
+  }
+  .centered-div{
+	text-align: center; 
+  }
 .container {
 	display: flex;
 	align-items: center;
@@ -101,9 +108,7 @@
 	outline: none;
 }
 .selectField{
-    text-align: left;
-    margin-left: 30px;
-    padding: 5px;
+	padding-left: 35px;
 }
 select{
     width: 190px;
