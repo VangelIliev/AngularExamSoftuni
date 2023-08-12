@@ -5,3 +5,8 @@
   #content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
   }
+  @media screen and (max-width: 430px) {
+    #content-wrap{
+      padding-bottom: 0px;
+    }
+  }
