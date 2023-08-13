@@ -15,7 +15,7 @@ export class RecipeService{
         return this.firestore.collection('recipes').valueChanges();
     }
 
-    getMyRecipes(): Observable<any[]>{
-        return this.firestore.collection('recipes').valueChanges();
+    getMyRecipes(uid:String): Observable<any[]>{
+        return this.firestore.collection('recipes', ref => ref.where('user', '==', uid)).valueChanges();
     }
 }
