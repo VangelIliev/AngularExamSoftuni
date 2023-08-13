@@ -1,5 +1,5 @@
     <div class="center-container">
-      <h1>My Recipes</h1>
+      <h1>{{userHasRecipes ? 'My Recipes' : 'You must add recipes' }}</h1>
     </div>
     <ul>
       <li class="card" *ngFor="let recipe of recipes">

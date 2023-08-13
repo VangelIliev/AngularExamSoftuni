@@ -7,6 +7,10 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class MyRecipesComponent implements OnInit {
   recipes: any[] = [];
+
+  get userHasRecipes():boolean{
+    return this.recipes.length > 0;
+  }
   constructor(private recipeService : RecipeService){
 
   }
