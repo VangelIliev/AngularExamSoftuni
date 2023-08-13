@@ -18,15 +18,17 @@ export class AddRecipeComponent{
     if(user != null){
       const parsedObject = JSON.parse(user);
       var uid = parsedObject.uid;
+      var email = parsedObject.email;
       this.recipeService.addRecipe(
       {
-        user:uid,
+        User:uid,
         Name:recipeName,
         Image:recipeImage,
         Category:recipeCategory,
         Preparation:recipePreparation,
         Servings:recipeServings,
-        Description:recipeDescription
+        Description:recipeDescription,
+        UserEmail:email
       }).then(() => {
         alert("Data has been added to Firestore");
       })

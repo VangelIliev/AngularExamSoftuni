@@ -6,7 +6,7 @@ import { RecipeService } from '../services/recipe.service';
   styleUrls: ['./my-recipes.component.scss']
 })
 export class MyRecipesComponent implements OnInit {
-  myRecipes: any[] = [];
+  recipes: any[] = [];
   constructor(private recipeService : RecipeService){
 
   }
@@ -16,8 +16,8 @@ export class MyRecipesComponent implements OnInit {
       const parsedObject = JSON.parse(user);
       var uid = parsedObject.uid;
       this.recipeService.getMyRecipes(uid).subscribe(data => {
-        this.myRecipes = data;
-        console.log(this.myRecipes);
+        this.recipes = data;
+        console.log(this.recipes);
       });
     }
   }

@@ -1,1 +1,6 @@
-<p>my-recipes works!</p>
+    <h1>My Recipes</h1>
+    <ul>
+      <li class="card" *ngFor="let recipe of recipes">
+        <app-recipe [recipeData] = "recipe"></app-recipe>
+      </li>
+    </ul>

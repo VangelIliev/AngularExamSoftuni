@@ -1,1 +1,25 @@
-<p>recipe works!</p>
+<li class="card">
+    <div class="ftrecipe">
+        <div class="ftrecipethumb">
+            <h3 class="heading">{{ User }} 's Recipe</h3>
+            <img class="cardImage" [src]="Image" [alt]="Name" />
+        </div>
+        <div class="ftrecipeContent">
+            <header class="contentheader">
+                <div class="rowWrapper">
+                    <h2 class="recipeTitle">{{ Name }}</h2>
+                    <div class="userrating"></div>
+                </div>
+                <ul class="recipeDetails">
+                    <li class="recipeDetailsItem"><span class="value"></span><span class="title">{{ Preparation }} Minutes</span></li>
+                    <li class="recipeDetailsItem"><span class="value"></span><span class="title">Ingredients needs to be implemented</span></li>
+                    <li class="recipeDetailsItem"><span class="value"></span><span class="title">{{ Servings }} Servings</span></li>
+                </ul>
+            </header>
+            <p class="description"></p>
+                    <footer class="contentFooter">
+                        <a class="anker">View Recipe</a> 
+                    </footer>            
+        </div>
+    </div>
+</li>
