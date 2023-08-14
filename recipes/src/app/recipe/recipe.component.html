@@ -15,8 +15,8 @@
                     <li class="recipeDetailsItem"><span class="value"></span><span class="title">Number of Servings {{ Servings }}</span></li>
                 </ul>
             </header>
-            <p class="description"></p>
-                    <footer class="contentFooter">
+            <p class="description">{{Description}}</p>
+                    <footer *ngIf="isLoggedIn" class="contentFooter">
                         <a class="anker">View Recipe</a> 
                     </footer>            
         </div>

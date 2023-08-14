@@ -8,6 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RecipeComponent implements OnInit {
   @Input() recipeData: any;
 
+  get isLoggedIn(){
+    var isLoggedIn = localStorage.getItem('user');
+    if(isLoggedIn != null){
+      return true;
+    }
+    return false;
+  }
   Name:string = '';
   Image:string = '';
   Category:string = '';
