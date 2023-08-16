@@ -8,8 +8,26 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class AddRecipeComponent{
   @ViewChild('addForm') addForm!: NgForm; 
+  ingredient: string = '';
+  quantity: number = 0;
+  recipeIngredients = [];
+  ingredientsList: { ingredient: string, quantity: number }[] = [];
   constructor(private recipeService: RecipeService){
 
+  }
+  addIngredient() {
+    if (this.ingredient && this.quantity !== null) {
+      const newIngredient = {
+        ingredient: this.ingredient,
+        quantity: this.quantity
+      };
+
+      this.ingredientsList.push(newIngredient);
+      debugger
+      // Clear the input fields
+      this.ingredient = '';
+      this.quantity = 0;
+    }
   }
   onSubmit() {
     // Access the form values and add the recipe to your database or perform other actions.

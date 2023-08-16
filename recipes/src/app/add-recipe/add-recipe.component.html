@@ -30,12 +30,17 @@
                 </div>
                 <div class="ingredients">
                     <div class="ingredientsTitle">Ingredients</div>
-                    <input type="text" name="recipeIngredient" class="ingredient" placeholder="Ingredient" value="ingredient">
-                    <input type="number" name="recipeQuantity" class="quantity" placeholder="Quantity" value="quantity">
-                    <button type="button" onClick="addIngredient" class="ingredientsBtn">Add Ingredient</button>
+                    <input type="text" name="recipeIngredient" class="ingredient" placeholder="Ingredient" [(ngModel)]="ingredient">
+                    <input type="number" name="recipeQuantity" class="quantity" placeholder="Quantity" [(ngModel)]="quantity">
+                    <button type="button" (click)="addIngredient()" class="ingredientsBtn">Add Ingredient</button>
                     <div class="allIngredients">                        
+                      <!-- Display your ingredients here -->
+                      <ul>
+                        <li *ngFor="let item of ingredientsList">{{ item.ingredient }} - {{ item.quantity }}</li>
+                      </ul>
                     </div>
-                </div>
+                  </div>
+                  
                 <div >
                     <label for="Description" class="description">Description</label>                                
                     <textarea class="textArea" id="Description" name="recipeDescription" type="text" value="description" ngModel></textarea>                      
