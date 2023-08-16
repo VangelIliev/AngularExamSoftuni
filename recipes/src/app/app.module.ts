@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './services/auth.service';
+import { MyRecipesResolver } from './resolvers/my-recipes.resolver';
 @NgModule({
   declarations: [
     AppComponent,

@@ -7,11 +7,12 @@ import { MyRecipesComponent } from '../my-recipes/my-recipes.component';
 import { RecipeDetailsComponent } from '../recipe-details/recipe-details.component';
 import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
+import { MyRecipesResolver } from '../resolvers/my-recipes.resolver';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'recipes', component:RecipesComponent},
-  { path: 'myRecipes', component:MyRecipesComponent},
+  { path: 'myRecipes', component:MyRecipesComponent, resolve: { myRecipesResolver: MyRecipesResolver}},
   { path: 'recipeDetails', component:RecipeDetailsComponent},
   { path: 'addRecipe', component: AddRecipeComponent},
   { path: 'notFound', component: NotFoundComponent},
