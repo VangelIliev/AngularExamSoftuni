@@ -38,8 +38,11 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       })
       .catch(error => {
+        debugger
         this.isSignedIn = false;
-        console.log(error);
+        if(error.code === "auth/email-already-in-use"){
+          alert('There is a user registered with that email');
+        }
       });
   }
 }
