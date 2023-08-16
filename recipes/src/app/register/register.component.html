@@ -1,21 +1,26 @@
 <div class="container">
     <div class="screen">
         <div class="content">                        
-            <form class="login" (ngSubmit)="onSignup()">
-                <div class="header-text">Sign Up</div>
+            <form [formGroup]="signInForm" class="login" (ngSubmit)="onSignup()">
+                <div class="header-text">Account Login</div>
                 <div class="form-fields">
                     <div class="field">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input type="email" class="input"  placeholder="Email" name="email" [(ngModel)]="email"/>
+                        <input type="email" class="input" placeholder="Email" formControlName="email">
+                        <br>
+                        <span *ngIf="email && email.invalid && email.touched">the email field is not valid</span>
                     </div>
                     <div class="field">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" class="input" placeholder="Password" name="password" [(ngModel)]="password"/>                   
+                        <input type="password" class="input"  placeholder="Password" formControlName="password">  
+                        <br>
+                        <span *ngIf="password && password.invalid && password.touched">the password field is not valid</span>                 
                     </div>
-                    <button class="submit" type="submit">
-                        <span class="button-text">Register</span>                    
+                    <button class="submit" [disabled]="signInForm.invalid">
+                        <span class="button-text">Register</span>
                     </button>
-                </div>                
+                </div>
+                
             </form>
         </div>
     </div>

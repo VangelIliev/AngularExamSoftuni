@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from "../services/auth.service";
 @Component({
   selector: 'app-register',
@@ -8,8 +9,16 @@ import { AuthService } from "../services/auth.service";
 })
 export class RegisterComponent implements OnInit {
   isSignedIn = false;
-  email:string = '';
-  password:string= '';
+  signInForm = new FormGroup({
+    email: new FormControl('', [Validators.email, Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(15)])
+  })
+  get email(){
+    return this.signInForm.get('email');
+  }
+  get password(){
+    return this.signInForm.get('password');
+  }
   constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(){
     if(localStorage.getItem('user') != null){
@@ -20,13 +29,18 @@ export class RegisterComponent implements OnInit {
     }
   } 
 
-  async onSignup(){
-    await this.authService.signUp(this.email, this.password);
-    if(this.authService.isLoggedIn){
-      this.isSignedIn = true;
-      this.email = '';
-      this.password = '';
-      this.router.navigate(['/login']);
-    }
+  onSignup(){
+    const emailValue = this.email?.value;
+    const passwordValue = this.password?.value;
+    if(emailValue != undefined && passwordValue != undefined){
+      this.authService.signUp(emailValue, passwordValue).then(()=>{
+        this.isSignedIn = true;
+        this.router.navigate(['/login']);
+      })
+      .catch(error => {
+        this.isSignedIn = false;
+        console.log(error);
+      });
   }
+}
 }
