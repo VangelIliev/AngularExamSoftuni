@@ -14,11 +14,11 @@ export class RecipeDetailsComponent implements OnInit {
   removeRecipe(){
     debugger;
     var user = localStorage.getItem('user');
-    // this.recipeService.removeRecipe(this.recipeName).subscribe((data: null) => {
-    //   if(data != null){
-    //     this.router.navigate(['/recipes']);
-    //   }
-    // })
+    this.recipeService.removeRecipe(this.recipe.id).then((data: null) => {
+      if(data != null){
+        this.router.navigate(['/recipes']);
+      }
+    })
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -29,7 +29,6 @@ export class RecipeDetailsComponent implements OnInit {
         this.recipe = data[0];
       });
     });
-    debugger;
   }
 }
 
