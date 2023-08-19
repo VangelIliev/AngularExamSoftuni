@@ -23,7 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './services/auth.service';
-import { MyRecipesResolver } from './resolvers/my-recipes.resolver';
+import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,8 @@ import { MyRecipesResolver } from './resolvers/my-recipes.resolver';
     RecipeDetailsComponent,
     RecipesComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UpdateRecipeComponent
   ],
   imports: [
     BrowserModule,

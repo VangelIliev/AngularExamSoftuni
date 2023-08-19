@@ -18,7 +18,9 @@ export class RecipeService{
     addRecipe(data: any): Promise<any> {
         return this.firestore.collection('recipes').add(data);
     }
-
+    removeRecipe(id:string): Promise<any>{
+        return this.firestore.collection('recipes').doc(id).delete();
+    }
     getAllRecipes(): Observable<any[]> {
         return this.firestore.collection('recipes')
           .snapshotChanges()
@@ -53,7 +55,6 @@ export class RecipeService{
           .pipe(
             map(actions => {
               return actions.map(action => {
-                debugger;
                 const id = action.payload.doc.id;
                 const data = action.payload.doc.data() as any;
                 return { id, ...data };
@@ -63,7 +64,6 @@ export class RecipeService{
       }
       
       getRecipeById(recipeId: string): Observable<any> {
-        debugger
         return this.firestore.collection('recipes', ref => ref.where('RecipeId', '==', recipeId))
           .snapshotChanges()
           .pipe(
