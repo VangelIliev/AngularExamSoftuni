@@ -17,7 +17,8 @@
             </header>
             <p class="description">{{Description}}</p>
                     <footer *ngIf="isLoggedIn" class="contentFooter">
-                        <a class="anker" [routerLink]="['/recipe-details', recipeData.RecipeId]">View Recipe</a> 
+                        <a class="anker" [routerLink]="['/recipe-details', recipeData.RecipeId]">View Recipe</a>
+                        <a class="anker" style="margin-top:10px" [routerLink]="['/update-recipe', recipeData.RecipeId]">Update Recipe</a> 
                     </footer>            
         </div>
     </div>

@@ -8,12 +8,14 @@ import { RecipeDetailsComponent } from '../recipe-details/recipe-details.compone
 import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { MyRecipesResolver } from '../resolvers/my-recipes.resolver';
+import { UpdateRecipeComponent } from '../update-recipe/update-recipe.component';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'recipes', component:RecipesComponent},
   { path: 'myRecipes', component:MyRecipesComponent, resolve: { myRecipesResolver: MyRecipesResolver}},
   { path: 'recipe-details/:id', component:RecipeDetailsComponent},
+  { path: 'update-recipe/:id', component: UpdateRecipeComponent},
   { path: 'addRecipe', component: AddRecipeComponent},
   { path: 'notFound', component: NotFoundComponent},
   { path: '', redirectTo: 'recipes', pathMatch:'full'},
