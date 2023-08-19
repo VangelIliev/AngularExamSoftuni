@@ -3,15 +3,15 @@
         <div class="content">
             <form class="login" #addForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="input-div">
-                    <label for="name">Recipe Name</label>                                                                                  
+                    <label for="name">Recipe Name : </label>                                                                                  
                     <input type="text" id="name" name="recipeName" class="input" ngModel/>                                                          
                 </div>
                 <div class="input-div">    
-                    <label for="Image">Select Image</label>                               
+                    <label for="Image">Select Image : </label>                               
                     <input type="text" name="recipeImage" id="Image" class="input" ngModel/>                            
                 </div>
                 <div class="selectField">
-                    <label for="Category">Category: </label>
+                    <label for="Category">Category : </label>
                 <select name="recipeCategory" id="Category" ngModel>
                     <option value="">Select</option>
                     <option value="Breakfast">Breakfast</option>
@@ -21,28 +21,28 @@
                 </select>
                 </div>
                 <div class="input-div">
-                    <label for="Preparation">Preparation Time</label>                                
+                    <label for="Preparation">Preparation Time : </label>                                
                     <input type="number" id="Preparation" name="recipePreparation" class="input" ngModel/>                          
                 </div>
                 <div class="input-div">
-                    <label for="Servings">Servings</label>                                
+                    <label for="Servings">Servings : </label>                                
                     <input type="number" id="Servings" name="recipeServings" class="input" ngModel/>                           
                 </div>
                 <div class="ingredients">
-                    <div class="ingredientsTitle">Ingredients</div>
+                    <div class="ingredientsTitle">Ingredients : </div>
                     <input type="text" name="recipeIngredient" class="ingredient" placeholder="Ingredient" [(ngModel)]="ingredient">
                     <input type="number" name="recipeQuantity" class="quantity" placeholder="Quantity" [(ngModel)]="quantity">
                     <button type="button" (click)="addIngredient()" class="ingredientsBtn">Add Ingredient</button>
                     <div class="allIngredients">                        
                       <!-- Display your ingredients here -->
-                      <ul>
+                      <ul class="ingredientList">
                         <li *ngFor="let item of ingredientsList">{{ item.ingredient }} - {{ item.quantity }}</li>
                       </ul>
                     </div>
                   </div>
                   
-                <div >
-                    <label for="Description" class="description">Description</label>                                
+                <div>
+                    <label for="Description" class="description">Description : </label>                                
                     <textarea class="textArea" id="Description" name="recipeDescription" type="text" value="description" ngModel></textarea>                      
                 </div>
                     <button class="submit" type='submit'>

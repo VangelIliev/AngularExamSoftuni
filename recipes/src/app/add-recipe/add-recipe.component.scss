@@ -27,7 +27,7 @@
 	background: linear-gradient(90deg, #ff4f87, #7C78B8);		
 	position: relative;	
 	height: fit-content;
-	width: 350px;	
+	width: 690px;	
 	box-shadow: 0px 0px 24px #5C5696;
 }
 
@@ -48,7 +48,6 @@
 	clip-path: inset(0 0 0 0);	
 }
 .login {
-	width: 320px;
 	padding: 20px;
 }
 .field {
@@ -63,10 +62,11 @@
 	padding: 10px;
 	padding-left: 24px;
 	font-weight: 700;
-	width: 75%;
+	width: 60%;
 	transition: .2s;
     color: white;
     font-size: 15px;
+	margin-left: 15px;
 }
 .input::placeholder {
     color: white;
@@ -82,7 +82,7 @@
 	background: #fff;
 	font-size: 14px;
 	margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 160px;
 	padding: 16px 20px;
 	border-radius: 26px;
 	border: 1px solid #D4D3E8;
@@ -90,7 +90,7 @@
 	font-weight: 700;
 	display: flex;
 	align-items: center;
-	width: 100%;
+	width: 50%;
 	color: #ff4f87;
 	box-shadow: 0px 2px 2px #5C5696;
 	cursor: pointer;
@@ -106,19 +106,22 @@
 	outline: none;
 }
 .selectField{
-	padding-left: 35px;
+	padding-left: 29px;
+    margin-top: 15px;
 }
 select{
     width: 190px;
+	margin-left: 45px;
 }
 .textArea{
     max-width: 235px;
-    min-width: 235px;
+    min-width: 535px;
     min-height: 30px;
     max-height: 150px;
     padding:5px;
     margin-left: 35px;
     margin-top: 5px;
+	display: block;
 }
 .description{
     text-align: left;
@@ -126,7 +129,8 @@ select{
 }
 .ingredientsTitle{
     text-align: left;
-    margin-left: 35px;
+    margin-left: 31px;
+	margin-top:10px
 }
 .quantity{
     padding:5px;
@@ -152,7 +156,7 @@ select{
     background-color: white;
     color:#ff4f87;
     font-weight: 600;
-	margin-left: 50px;
+	margin-left: 24px;
 }
 .ingredientsBtn:hover{
     cursor:pointer;
@@ -168,6 +172,10 @@ select{
 }
 .input-div{
 	margin-left: 30px;
+	margin-top: 10px;
+}
+.ingredientList{
+	margin-left: 45px;
 }
 @media screen and (max-width: 430px) {
 	.container
