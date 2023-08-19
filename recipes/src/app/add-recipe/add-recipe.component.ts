@@ -1,6 +1,7 @@
 import { Component, ViewChild  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RecipeService } from '../services/recipe.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
@@ -12,7 +13,7 @@ export class AddRecipeComponent{
   quantity: number = 0;
   recipeIngredients = [];
   ingredientsList: { ingredient: string, quantity: number }[] = [];
-  constructor(private recipeService: RecipeService){
+  constructor(private recipeService: RecipeService, private router: Router){
 
   }
   addIngredient() {
@@ -23,7 +24,6 @@ export class AddRecipeComponent{
       };
 
       this.ingredientsList.push(newIngredient);
-      debugger
       // Clear the input fields
       this.ingredient = '';
       this.quantity = 0;
@@ -37,6 +37,7 @@ export class AddRecipeComponent{
       const parsedObject = JSON.parse(user);
       var uid = parsedObject.uid;
       var email = parsedObject.email;
+      debugger
       this.recipeService.addRecipe(
       {
         User:uid,
@@ -46,9 +47,10 @@ export class AddRecipeComponent{
         Preparation:recipePreparation,
         Servings:recipeServings,
         Description:recipeDescription,
-        UserEmail:email
+        UserEmail:email,
+        Ingredients:this.ingredientsList
       }).then(() => {
-        alert("Data has been added to Firestore");
+        this.router.navigate(['/recipes']);
       })
       .catch(error => {
         alert('Error adding data to Firestore: ' + error);
