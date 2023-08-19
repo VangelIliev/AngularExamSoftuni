@@ -16,9 +16,7 @@ export class HeaderComponent implements OnInit {
   });
  }
  selectCategory(category: string){
-  this.recipeService.getRecipeseByCategory(category).subscribe(filteredRecipes => {
-    console.log(filteredRecipes);
-  });
+  this.router.navigate(['/recipes'],{queryParams: {category:category}});
  }
  logout(){
   this.authService.logout();
