@@ -109,7 +109,7 @@
 	padding-left: 29px;
     margin-top: 15px;
 }
-select{
+#Category{
     width: 190px;
 	margin-left: 45px;
 }
@@ -138,7 +138,10 @@ select{
     width: 195px;
     color: black;
     margin-top: 7px;
-	margin-left: 30px;
+	margin-left: 9px;
+}
+#quantityType{
+	margin-left: 10px;
 }
 .ingredient{
     padding:5px;
@@ -156,7 +159,7 @@ select{
     background-color: white;
     color:#ff4f87;
     font-weight: 600;
-	margin-left: 24px;
+	margin-left: 154px;
 }
 .ingredientsBtn:hover{
     cursor:pointer;

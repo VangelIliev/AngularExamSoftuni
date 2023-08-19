@@ -11,6 +11,7 @@ export class AddRecipeComponent{
   @ViewChild('addForm') addForm!: NgForm; 
   ingredient: string = '';
   quantity: number = 0;
+  quantityType: string = '';
   recipeIngredients = [];
   ingredientsList: { ingredient: string, quantity: number }[] = [];
   constructor(private recipeService: RecipeService, private router: Router){
@@ -20,7 +21,8 @@ export class AddRecipeComponent{
     if (this.ingredient && this.quantity !== null) {
       const newIngredient = {
         ingredient: this.ingredient,
-        quantity: this.quantity
+        quantity: this.quantity,
+        quantityType:this.quantityType
       };
 
       this.ingredientsList.push(newIngredient);

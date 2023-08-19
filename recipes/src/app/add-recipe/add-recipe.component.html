@@ -32,11 +32,16 @@
                     <div class="ingredientsTitle">Ingredients : </div>
                     <input type="text" name="recipeIngredient" class="ingredient" placeholder="Ingredient" [(ngModel)]="ingredient">
                     <input type="number" name="recipeQuantity" class="quantity" placeholder="Quantity" [(ngModel)]="quantity">
+                    <select name="quantityType" id="quantityType" [(ngModel)] = "quantityType" required>
+                        <option value="">Select</option>
+                        <option value="grams">g</option>
+                        <option value="mililiters">ml</option>
+                    </select>
                     <button type="button" (click)="addIngredient()" class="ingredientsBtn">Add Ingredient</button>
                     <div class="allIngredients">                        
                       <!-- Display your ingredients here -->
                       <ul class="ingredientList">
-                        <li *ngFor="let item of ingredientsList">{{ item.ingredient }} - {{ item.quantity }}</li>
+                        <li *ngFor="let item of ingredientsList">{{ item.ingredient }} - {{ item.quantity }} {{ item.quantityType}}</li>
                       </ul>
                     </div>
                   </div>

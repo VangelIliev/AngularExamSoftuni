@@ -3,6 +3,14 @@
 
 <div class="topnav" id="myTopnav">
   <a routerLink="/recipes">All Recipes</a>
+  <div class="dropdown">
+    <button class="dropbtn">Categories</button>
+    <div class="dropdown-content">
+      <a (click)="selectCategory('Breakfast')">Breakfast</a>
+      <a (click)="selectCategory('Lunch')">Lunch</a>
+      <a (click)="selectCategory('Dinner')">Dinner</a>
+    </div>
+  </div>
   <a routerLink="/myRecipes" *ngIf="isSignedIn">My Recipes</a>
   <a routerLink="/addRecipe" *ngIf="isSignedIn">Add Recipe</a>
   <a routerLink="/register" *ngIf="!isSignedIn">Register</a>

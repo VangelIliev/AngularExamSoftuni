@@ -18,4 +18,8 @@ export class RecipeService{
     getMyRecipes(uid:String): Observable<any[]>{
         return this.firestore.collection('recipes', ref => ref.where('User', '==', uid)).valueChanges();
     }
+
+    getRecipeseByCategory(category:String): Observable<any[]>{
+        return this.firestore.collection('recipes', ref => ref.where('Category', '==', category)).valueChanges();
+    }
 }
