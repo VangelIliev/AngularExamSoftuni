@@ -1,13 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  @Input() recipeData: any;
 
+  @Input() recipeData: any;
+  constructor(private router: Router){}
+  get recipeName(){
+    return this.recipeData.Name;
+  }
   get isLoggedIn(){
     var isLoggedIn = localStorage.getItem('user');
     if(isLoggedIn != null){
@@ -30,5 +34,10 @@ export class RecipeComponent implements OnInit {
     this.Servings = this.recipeData.Servings;
     this.Description = this.recipeData.Description;
     this.User = this.recipeData.UserEmail;
+  }
+  viewRecipeDetails() {
+    const recipeName = this.recipeData.Name;   
+    // Navigate to the RecipeDetailsComponent with the recipe name parameter
+    this.router.navigate(['/recipeDetails', recipeName]);
   }
 }

@@ -39,7 +39,6 @@ export class AddRecipeComponent{
       const parsedObject = JSON.parse(user);
       var uid = parsedObject.uid;
       var email = parsedObject.email;
-      debugger
       this.recipeService.addRecipe(
       {
         User:uid,

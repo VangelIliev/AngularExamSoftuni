@@ -1,1 +1,30 @@
-<p>recipe-details works!</p>
+<li class="card"  *ngIf="recipe">
+    <div class="ftrecipe">
+      <div class="ftrecipethumb">
+        <img class="cardImage" [src]="recipe.Image" [alt]="recipe.Name" />
+      </div>
+      <div class="ftrecipeContent">
+        <header class="contentheader">
+          <div class="rowWrapper">
+            <h2 class="recipeTitle">{{ recipe.Name }}</h2>
+            <div class="userrating"></div>
+          </div>
+          <ul class="recipeDetails">
+            <li class="recipeDetailsItem"><span class="value"></span><span class="title">{{ recipe.Preparation }} Minutes to Make</span></li>
+            <li class="recipeDetailsItem"><span class="value"></span><span class="title">Servings : {{ recipe.Servings }}</span></li>
+          </ul>
+        </header>
+        <div class="ingredients">
+            <div style="margin-left: 16px;">Ingredients</div>
+            <ul class="ingredientList">
+                <li *ngFor="let ingredient of recipe.Ingredients">{{ ingredient.ingredient }} {{ingredient.quantity}} {{ingredient.quantityType}}</li>
+              </ul>
+              <div class="bottom-info">
+                <div>Description</div>
+                <p class="description">{{ recipe.Description }}</p> 
+              </div>
+        </div>                              
+      </div>
+    </div>
+  </li>
+  

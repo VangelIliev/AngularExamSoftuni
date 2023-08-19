@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'recipes', component:RecipesComponent},
   { path: 'myRecipes', component:MyRecipesComponent, resolve: { myRecipesResolver: MyRecipesResolver}},
-  { path: 'recipeDetails', component:RecipeDetailsComponent},
+  { path: 'recipeDetails/:id', component:RecipeDetailsComponent},
   { path: 'addRecipe', component: AddRecipeComponent},
   { path: 'notFound', component: NotFoundComponent},
   { path: '', redirectTo: 'recipes', pathMatch:'full'},
