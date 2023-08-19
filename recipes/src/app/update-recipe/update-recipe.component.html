@@ -1,1 +1,61 @@
-<p>update-recipe works!</p>
+<div class="container">
+    <div class="screen">
+        <div class="content">
+            <form class="login" #addForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="input-div">
+                    <label for="name">Recipe Name : </label>                                                                                  
+                    <input type="text" id="name" name="recipeName" class="input" placeholder="{{recipe.Name}}" ngModel/>                                                          
+                </div>
+                <div class="input-div">    
+                    <label for="Image">Select Image : </label>                               
+                    <input type="text" name="recipeImage" id="Image" class="input" placeholder="{{recipe.Image}}" ngModel/>                            
+                </div>
+                <div class="selectField">
+                    <label for="Category">Category : </label>
+                <select name="recipeCategory" id="Category"  [(ngModel)]="recipeCategory">
+                    <option value="">Select</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+                </div>
+                <div class="input-div">
+                    <label for="Preparation">Preparation Time : </label>                                
+                    <input type="number" id="Preparation" name="recipePreparation" placeholder="{{recipe.Preparation}}" class="input" ngModel/>                          
+                </div>
+                <div class="input-div">
+                    <label for="Servings">Servings : </label>                                
+                    <input type="number" id="Servings" name="recipeServings" placeholder="{{recipe.Servings}}" class="input" ngModel/>                           
+                </div>
+                <div class="ingredients">
+                    <div class="ingredientsTitle">Ingredients : </div>
+                    <input type="text" name="recipeIngredient" class="ingredient" placeholder="Ingredient" [(ngModel)]="ingredient">
+                    <input type="number" name="recipeQuantity" class="quantity" placeholder="Quantity" [(ngModel)]="quantity">
+                    <select name="quantityType" id="quantityType" [(ngModel)] = "quantityType" required>
+                        <option value="">Select</option>
+                        <option value="grams">g</option>
+                        <option value="mililiters">ml</option>
+                    </select>
+                    <button type="button" (click)="addIngredient()" class="ingredientsBtn">Add Ingredient</button>
+                    <div class="allIngredients">                        
+                      <!-- Display your ingredients here -->
+                      <ul class="ingredientList">
+                        <li *ngFor="let item of ingredientsList">{{ item.ingredient }} - {{ item.quantity }} {{ item.quantityType}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                <div>
+                    <label for="Description" class="description">Description : </label>                                
+                    <textarea class="textArea" id="Description" name="recipeDescription" placeholder="{{recipe.Description}}" type="text" value="description" ngModel></textarea>                      
+                </div>
+                    <button class="submit" type='submit'>
+                        <span class="text">Update Recipe</span>
+                    </button>
+            </form>
+        </div>
+    </div>
+</div>
+  
+

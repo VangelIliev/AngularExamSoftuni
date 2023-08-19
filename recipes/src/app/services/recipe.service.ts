@@ -18,6 +18,9 @@ export class RecipeService{
     addRecipe(data: any): Promise<any> {
         return this.firestore.collection('recipes').add(data);
     }
+    updateRecipe(data:any, id:string):Promise<any>{
+        return this.firestore.collection('recipes').doc(id).update(data);
+    }
     removeRecipe(id:string): Promise<any>{
         return this.firestore.collection('recipes').doc(id).delete();
     }
