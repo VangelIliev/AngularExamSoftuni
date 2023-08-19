@@ -15,7 +15,7 @@ export class MyRecipesResolver implements Resolve<Observable<any>> {
   ): Observable<any>{
     const user = localStorage.getItem('user');
     if(user){
-      return this.recipeService.getMyRecipes(JSON.parse(user).uid);
+      return this.recipeService.getRecipesByUser(JSON.parse(user).uid);
     } else{
       return of();
     }

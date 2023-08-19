@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { RecipeService } from '../services/recipe.service';
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 export class RecipeComponent implements OnInit {
 
   @Input() recipeData: any;
-  constructor(private router: Router){}
+  constructor(private router: Router, private recipeService: RecipeService){}
   get recipeName(){
     return this.recipeData.Name;
   }
@@ -27,6 +28,7 @@ export class RecipeComponent implements OnInit {
   Description:string = '';
   User:string = '';
   ngOnInit(): void {
+
     this.Name = this.recipeData.Name;
     this.Image = this.recipeData.Image;
     this.Category = this.recipeData.Category;
@@ -36,8 +38,13 @@ export class RecipeComponent implements OnInit {
     this.User = this.recipeData.UserEmail;
   }
   viewRecipeDetails() {
-    const recipeName = this.recipeData.Name;   
-    // Navigate to the RecipeDetailsComponent with the recipe name parameter
-    this.router.navigate(['/recipeDetails', recipeName]);
+    const recipeId = this.recipeData.RecipeId;
+
+    this.recipeService.getRecipeById(recipeId).subscribe(recipe => {
+      debugger
+      const id = recipe[0].RecipeId;
+      // Navigate to the RecipeDetailsComponent with the recipe data
+      this.router.navigate(['/recipe-details'], { state: id });
+    });
   }
 }

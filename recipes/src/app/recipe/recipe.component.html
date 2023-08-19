@@ -17,7 +17,7 @@
             </header>
             <p class="description">{{Description}}</p>
                     <footer *ngIf="isLoggedIn" class="contentFooter">
-                        <a class="anker" (click)="viewRecipeDetails()">View Recipe</a> 
+                        <a class="anker" [routerLink]="['/recipe-details', recipeData.RecipeId]">View Recipe</a> 
                     </footer>            
         </div>
     </div>

@@ -39,6 +39,7 @@ export class AddRecipeComponent{
       const parsedObject = JSON.parse(user);
       var uid = parsedObject.uid;
       var email = parsedObject.email;
+      var newGuid = this.recipeService.generateGuid();
       this.recipeService.addRecipe(
       {
         User:uid,
@@ -49,7 +50,8 @@ export class AddRecipeComponent{
         Servings:recipeServings,
         Description:recipeDescription,
         UserEmail:email,
-        Ingredients:this.ingredientsList
+        Ingredients:this.ingredientsList,
+        RecipeId: newGuid
       }).then(() => {
         this.router.navigate(['/recipes']);
       })
