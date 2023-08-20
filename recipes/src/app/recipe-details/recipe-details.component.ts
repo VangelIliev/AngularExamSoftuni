@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 export class RecipeDetailsComponent implements OnInit {
   recipe: any;
   recipeId: string = '';
+  canRemove:boolean = false;
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {}
   removeRecipe(){
-    var user = localStorage.getItem('user');
     debugger
     this.recipeService.removeRecipe(this.recipe.id).then((data: null) => {    
         this.router.navigate(['/recipes']);     
@@ -24,6 +24,13 @@ export class RecipeDetailsComponent implements OnInit {
       this.recipeId = recipeId; // Store the recipeId in the component property
       this.recipeService.getRecipeById(recipeId).subscribe(data => {
         this.recipe = data[0];
+        debugger;
+        var user = localStorage.getItem('user');
+        if(user != null){
+          const parsedObject = JSON.parse(user);
+          var email = parsedObject.email;
+          this.canRemove = this.recipe.UserEmail == email;
+        }
       });
     });
   }
