@@ -30,10 +30,17 @@ export class UpdateRecipeComponent implements OnInit{
 
         this.recipe = data[0];
         this.ingredientsList = this.recipe.Ingredients;
-        this.recipeCategory = this.recipe.Category;
-
+        this.recipeCategory = this.recipe.Category;       
         this.addForm.setValue({
-          recipeCategory: this.recipeCategory
+          recipeCategory: this.recipeCategory,
+          recipeName: this.recipe.Name,
+          recipeImage:this.recipe.Image ,
+          recipePreparation:this.recipe.Preparation, 
+          recipeServings:this.recipe.Servings,
+          recipeIngredient:'',
+          recipeQuantity:0,
+          recipeDescription: this.recipe.Description,
+          quantityType:'Select'
         })
       });
     });
