@@ -23,8 +23,8 @@
                 <div>Description</div>
                 <p class="description">{{ recipe.Description }}</p> 
               </div>
-              <button *ngIf="canRemove === true" class="submit" type='button' (click)="removeRecipe()">
-                <span class="text">Remove recipe</span>
+              <button *ngIf="canRemove" class="submit" type='button' (click)="removeRecipe()">
+                <span class="text" >Remove recipe</span>
             </button>
         </div>                              
       </div>
