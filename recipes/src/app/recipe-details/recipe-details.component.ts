@@ -12,7 +12,6 @@ export class RecipeDetailsComponent implements OnInit {
   recipeId: string = '';
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {}
   removeRecipe(){
-    debugger;
     var user = localStorage.getItem('user');
     this.recipeService.removeRecipe(this.recipe.id).then((data: null) => {
       if(data != null){
@@ -22,7 +21,6 @@ export class RecipeDetailsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      debugger;
       const recipeId = params['id'];
       this.recipeId = recipeId; // Store the recipeId in the component property
       this.recipeService.getRecipeById(recipeId).subscribe(data => {

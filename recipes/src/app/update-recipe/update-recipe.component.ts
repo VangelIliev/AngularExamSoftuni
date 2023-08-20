@@ -24,11 +24,10 @@ export class UpdateRecipeComponent implements OnInit{
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      debugger;
       const recipeId = params['id'];
       this.recipeId = recipeId; // Store the recipeId in the component property
       this.recipeService.getRecipeById(recipeId).subscribe(data => {
-        debugger
+
         this.recipe = data[0];
         this.ingredientsList = this.recipe.Ingredients;
         this.recipeCategory = this.recipe.Category;
@@ -62,7 +61,6 @@ export class UpdateRecipeComponent implements OnInit{
       var uid = parsedObject.uid;
       var email = parsedObject.email;
       var newGuid = this.recipeService.generateGuid();
-      debugger;
       this.recipeService.updateRecipe(
       {
         User:uid,

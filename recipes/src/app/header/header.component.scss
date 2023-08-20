@@ -75,3 +75,12 @@
   flex-direction: column;
   position: fixed;
 }
+@media screen and (max-width: 556px) {
+  .topnav{
+    display: flex;
+    flex-direction: column;
+  }
+  .dropdown{
+    text-align: center;
+  }
+}

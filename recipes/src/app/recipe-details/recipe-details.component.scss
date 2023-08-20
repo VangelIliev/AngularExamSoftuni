@@ -193,3 +193,18 @@ ion-icon {
     margin-left: auto;
     margin-right: auto;
 }
+@media screen and (max-width: 556px) {
+  .ftrecipe{
+    height: 420px;
+    margin-top: 10px;
+  }
+  .submit{
+    margin-top: 0px;
+  }
+  a{
+    padding: 2px;
+  }
+  .submit{
+    padding:3px
+  }
+}

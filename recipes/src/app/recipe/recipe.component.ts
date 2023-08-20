@@ -41,7 +41,6 @@ export class RecipeComponent implements OnInit {
     const recipeId = this.recipeData.RecipeId;
 
     this.recipeService.getRecipeById(recipeId).subscribe(recipe => {
-      debugger
       const id = recipe[0].RecipeId;
       // Navigate to the RecipeDetailsComponent with the recipe data
       this.router.navigate(['/recipe-details'], { state: id });
