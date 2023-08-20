@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(error => {
         this.isSignedIn = false;
-        console.log(error);
+        alert(error);
       });
     }
   }

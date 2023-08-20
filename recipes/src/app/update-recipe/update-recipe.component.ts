@@ -68,24 +68,29 @@ export class UpdateRecipeComponent implements OnInit{
       var uid = parsedObject.uid;
       var email = parsedObject.email;
       var newGuid = this.recipeService.generateGuid();
-      this.recipeService.updateRecipe(
-      {
-        User:uid,
-        Name:recipeName,
-        Image:recipeImage,
-        Category:recipeCategory,
-        Preparation:recipePreparation,
-        Servings:recipeServings,
-        Description:recipeDescription,
-        UserEmail:email,
-        Ingredients:this.ingredientsList,
-        RecipeId: newGuid
-      }, this.recipe.id).then(() => {
-        this.router.navigate(['/recipes']);
-      })
-      .catch(error => {
-        alert('Error adding data to Firestore: ' + error);
-      });
+      if(recipeName != "" && recipeImage != "" && recipeCategory != "" && recipePreparation != 0 && recipeServings != 0 && recipeDescription != "" && this.ingredientsList != null){
+        this.recipeService.updateRecipe(
+          {
+            User:uid,
+            Name:recipeName,
+            Image:recipeImage,
+            Category:recipeCategory,
+            Preparation:recipePreparation,
+            Servings:recipeServings,
+            Description:recipeDescription,
+            UserEmail:email,
+            Ingredients:this.ingredientsList,
+            RecipeId: newGuid
+          }, this.recipe.id).then(() => {
+            this.router.navigate(['/recipes']);
+          })
+          .catch(error => {
+            alert('Error adding data to Firestore: ' + error);
+          });
+      }
+      else{
+        alert('you forgot to add field value to a field')
+      }
     }
     else{
       alert('user not found');

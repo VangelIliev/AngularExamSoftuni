@@ -18,7 +18,7 @@ export class AddRecipeComponent{
 
   }
   addIngredient() {
-    if (this.ingredient && this.quantity !== null) {
+    if (this.ingredient != null && this.quantity !== null) {
       const newIngredient = {
         ingredient: this.ingredient,
         quantity: this.quantity,
@@ -40,24 +40,30 @@ export class AddRecipeComponent{
       var uid = parsedObject.uid;
       var email = parsedObject.email;
       var newGuid = this.recipeService.generateGuid();
-      this.recipeService.addRecipe(
-      {
-        User:uid,
-        Name:recipeName,
-        Image:recipeImage,
-        Category:recipeCategory,
-        Preparation:recipePreparation,
-        Servings:recipeServings,
-        Description:recipeDescription,
-        UserEmail:email,
-        Ingredients:this.ingredientsList,
-        RecipeId: newGuid
-      }).then(() => {
-        this.router.navigate(['/recipes']);
-      })
-      .catch(error => {
-        alert('Error adding data to Firestore: ' + error);
-      });
+      if(recipeName != "" && recipeImage != "" && recipeCategory != "" && recipePreparation != 0 && recipeServings != 0 && recipeDescription != "" && this.ingredientsList != null){
+        this.recipeService.addRecipe(
+          {
+            User:uid,
+            Name:recipeName,
+            Image:recipeImage,
+            Category:recipeCategory,
+            Preparation:recipePreparation,
+            Servings:recipeServings,
+            Description:recipeDescription,
+            UserEmail:email,
+            Ingredients:this.ingredientsList,
+            RecipeId: newGuid
+          }).then(() => {
+            this.router.navigate(['/recipes']);
+          })
+          .catch(error => {
+            alert('Error adding data to Firestore: ' + error);
+          });
+      }
+      else{
+        alert('you forgot to provide a field ');
+      }
+    
     }
     else{
       alert('user not found');

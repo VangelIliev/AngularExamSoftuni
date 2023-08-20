@@ -42,6 +42,9 @@ export class RegisterComponent implements OnInit {
         if(error.code === "auth/email-already-in-use"){
           alert('There is a user registered with that email');
         }
+        else{
+          alert(error);
+        }
       });
   }
 }

@@ -13,10 +13,9 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {}
   removeRecipe(){
     var user = localStorage.getItem('user');
-    this.recipeService.removeRecipe(this.recipe.id).then((data: null) => {
-      if(data != null){
-        this.router.navigate(['/recipes']);
-      }
+    debugger
+    this.recipeService.removeRecipe(this.recipe.id).then((data: null) => {    
+        this.router.navigate(['/recipes']);     
     })
   }
   ngOnInit(): void {
