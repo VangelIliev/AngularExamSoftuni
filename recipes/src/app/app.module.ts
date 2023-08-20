@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './services/auth.service';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
+import { RecipeService } from './services/recipe.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,7 @@ import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
     AngularFireDatabaseModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
